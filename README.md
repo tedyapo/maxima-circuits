@@ -75,7 +75,7 @@ Example:
     (%o6)                          1.995262314968879
 
 # Comprehensive Example
-Let's design a 6dB pi attenuator for a 75-ohm system. The circuit looks like this:
+Let's design a 6dB pi attenuator for a 50-ohm system. The circuit looks like this:
 
 ![pi attenuator schematic](images/pi_attenuator.png)
 
@@ -105,28 +105,28 @@ next, an expression for the input to output voltage ratio (Vout/Vin):
 
 Using these expressions, we create a system of two equations and solve for the resistor values:
 
-    (%i16) soln: solve([Zout = 75, Vout = dBtoVr(-6)], [r1, r2]);
-    (%o16) [[r1 = 44.82225244024818, r2 = 453.587254335679], [r1 = 0, r2 = 0]]
+    (%i3) soln: solve([Zout = 50, Vout = dBtoVr(-6)], [r1, r2]);
+    (%o3) [[r1 = 37.35187703354015, r2 = 150.4760237537246], [r1 = 0, r2 = 0]]
 
 The first solution is the one we're interested in. Now, we choose resistors from the E12 (10%) series:
 
-    (%i28) vals: pref(first(soln), E12);
-    (%o28)                      [r1 = 47.0, r2 = 470.0]
+    (%i4) vals: pref(first(soln), E12);
+    (%o4)                       [r1 = 39.0, r2 = 150.0]
 
 and evaluate the result:
 
-    (%i29) ev([Zout, VrtodB(Vout)], vals);
-    (%o29)             [77.07395498392283, - 6.192603348517975]
+    (%i5) ev([Zout, VrtodB(Vout)], vals);
+    (%o5)              [50.66225165562914, - 6.192603348517975]
     
-Hmm. Not close enough. Let's use 1% resistors instead:
+Let's how much better 1% values are:
 
-    (%i26) vals: pref(first(soln), E96);
-    (%o26)                      [r1 = 45.3, r2 = 453.0]
+    (%i6) vals: pref(first(soln), E96);
+    (%o6)                       [r1 = 37.4, r2 = 150.0]
 
 How does this look?
 
-    (%i27) ev([Zout, VrtodB(Vout)], vals);
-    (%o27)             [75.31228244654402, - 6.046618573687986]
+    (%i7) ev([Zout, VrtodB(Vout)], vals);
+    (%o7)              [49.95553579368609, - 6.009010999434952]
 
-Ok, we're done.
+Close enough.
 
