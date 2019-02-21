@@ -118,7 +118,7 @@ and evaluate the result:
     (%i5) ev([Zout, VrtodB(Vout)], vals);
     (%o5)              [50.66225165562914, - 6.192603348517975]
     
-Let's how much better 1% values are:
+Let's see how much better 1% values are:
 
     (%i6) vals: pref(first(soln), E96);
     (%o6)                       [r1 = 37.4, r2 = 150.0]
