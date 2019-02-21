@@ -77,6 +77,8 @@ Example:
 # Comprehensive Example
 Let's design a 6dB pi attenuator for a 75-ohm system. The circuit looks like this:
 
+![pi attenuator schematic](images/pi_attenuator.png)
+
 First, we write an expression for the output impedance:
 
     (%i14) Zout: par(r2, r1+par(r2, 50));
@@ -90,7 +92,7 @@ First, we write an expression for the output impedance:
                                        -- + 0.02
                                        r2
                                        
-next, an expression for the output voltage:
+next, an expression for the input to output voltage ratio (Vout/Vin):
 
     (%i15) Vout: vdiv(r1, par(r2, 50));
                                           1
