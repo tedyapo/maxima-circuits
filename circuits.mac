@@ -85,5 +85,8 @@ par([x]) := 1/lsum(i, i, map(lambda([x1], 1/x1), x))$
 /* voltage divider */
 vdiv(r_top, r_bot) := r_bot/(r_top+r_bot)$
 
-/*compile(all)$*/
+/* dB to voltage ratio */
+dBtoVr(dB) := 10^(dB/20);
 
+/* voltage ratio to dB */
+VrtodB(Vr) := 20*log(Vr)/log(10);
