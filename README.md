@@ -1,6 +1,8 @@
 # maxima-circuits
 Maxima functions for circuit calculations
 
+See also the accompanying [Hackaday article](https://hackaday.com/2019/02/28/computer-algebra-for-electronic-design/).
+
 # Usage
 Load the functions using
 
