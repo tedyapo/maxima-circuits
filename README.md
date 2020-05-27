@@ -11,7 +11,7 @@ Load the functions using
 You may also place this line in your startup script (typically ~/.maxima/maxima-init.mac or ~/.maxima/wxmaxima-init.mac)
 
 # par(...)
-Calculate reciprical of sum of reciprocals of supplied arguments. This calculates equivalents for parallel resistor or inductor values, or for series capacitors.
+Calculate reciprical of sum of reciprocals of supplied arguments, aka the harmonic sum. This calculates equivalents for parallel resistor or inductor values, or for series capacitors.
 
 Examples:
 
